@@ -46,7 +46,7 @@ export default function Login() {
     <div className="login">
       {/* Left: school image panel */}
       <aside className="login__image">
-        <img src="occ-backgroundimg.png" alt="One Cainta College building" />
+        <img src="/images/occ-backgroundimg.png" alt="One Cainta College building" />
         <div className="login__image-overlay" />
         <Link to="/" className="login__back">
           <span aria-hidden="true">&#10094;</span> Back
