@@ -38,15 +38,15 @@ export default function Login() {
       return;
     }
     setMessage({ type: "success", text: "Login successful!" });
-    // TODO: navigate to the dashboard once that page exists.
-    setTimeout(() => navigate("/"), 800);
+    // Students land on the dashboard after logging in.
+    setTimeout(() => navigate("/dashboard", { replace: true }), 500);
   };
 
   return (
     <div className="login">
       {/* Left: school image panel */}
       <aside className="login__image">
-        <img src="/images/occ-backgroundimg.png" alt="One Cainta College building" />
+        <img src="" alt="One Cainta College building" />
         <div className="login__image-overlay" />
         <Link to="/" className="login__back">
           <span aria-hidden="true">&#10094;</span> Back

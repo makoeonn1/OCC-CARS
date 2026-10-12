@@ -1,0 +1,163 @@
+.login {
+  display: grid;
+  grid-template-columns: 7fr 8fr;
+  min-height: 100vh;
+  background: #f4f4f4;
+  color: #000;
+}
+
+/* ---------- Left image panel ---------- */
+.login__image {
+  position: relative;
+  min-height: 240px;
+  background: var(--navy);
+  overflow: hidden;
+}
+
+.login__image img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.login__image-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(40, 32, 100, 0.72);
+}
+
+.login__back {
+  position: absolute;
+  top: 18px;
+  left: 24px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.login__back:hover {
+  text-decoration: underline;
+}
+
+/* ---------- Right form panel ---------- */
+.login__panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 56px 32px 40px;
+}
+
+.login__tab {
+  width: min(213px, 60%);
+  padding-bottom: 14px;
+  text-align: center;
+  font-size: 1.15rem;
+  font-weight: 700;
+  border-bottom: 4px solid #e2b800;
+  margin-bottom: 36px;
+}
+
+.login__form {
+  width: min(410px, 100%);
+  display: flex;
+  flex-direction: column;
+}
+
+.login__form h1 {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.login__hint {
+  margin: 2px 0 34px;
+  font-size: 0.85rem;
+  color: #555;
+}
+
+.login__form label {
+  margin-bottom: 6px;
+  font-size: 0.9rem;
+}
+
+.login__form input {
+  width: 100%;
+  height: 35px;
+  margin-bottom: 24px;
+  padding: 0 8px;
+  border: 0;
+  background: #fff;
+  font-family: inherit;
+  font-size: 1rem;
+  color: #000;
+}
+
+.login__form input::placeholder {
+  color: #777;
+}
+
+.login__form input:focus {
+  outline: 2px solid var(--gold);
+}
+
+.login__msg {
+  margin: -8px 0 16px;
+  font-size: 0.85rem;
+}
+
+.login__msg--error {
+  color: #b00020;
+}
+
+.login__msg--success {
+  color: #1b7a34;
+}
+
+.login__submit {
+  align-self: center;
+  margin-top: 6px;
+  width: 125px;
+  height: 53px;
+  border: 1px solid #a87f2c;
+  background: #c99a3c;
+  color: #000;
+  font-family: inherit;
+  font-size: 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.login__submit:hover:not(:disabled) {
+  background: #d8a93f;
+}
+
+.login__submit:disabled {
+  opacity: 0.7;
+  cursor: wait;
+}
+
+.login__rule {
+  width: min(605px, 100%);
+  margin: auto 0 0;
+  border: 0;
+  border-top: 1px solid #000;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 800px) {
+  .login {
+    grid-template-columns: 1fr;
+    grid-template-rows: 220px 1fr;
+  }
+  .login__panel {
+    padding-top: 36px;
+  }
+}

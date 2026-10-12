@@ -1,0 +1,35 @@
+:root {
+  --navy: #1c1640;
+  --navy-deep: #15102f;
+  --gold: #c99a3c;
+  --gold-bright: #e3b23c;
+  --text-light: #e9e6f5;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: var(--navy);
+  color: var(--text-light);
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* Hide the broken-image icon while src is still empty */
+img[src=""] {
+  visibility: hidden;
+}
