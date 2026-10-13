@@ -1,10 +1,16 @@
+/* =====================================================================
+   DASHBOARD
+   Everything is sized in em. The base size below follows the screen
+   width, so the whole page scales together on any screen.
+===================================================================== */
 .dash {
-  --side-w: clamp(160px, 18vw, 250px);
+  --side-w: clamp(150px, 17.4vw, 280px);
   --purple: #241a41;
   --gold-d: #c69a3d;
   min-height: 100vh;
   background: #d9d9d9;
   color: #000;
+  font-size: clamp(13px, 1.25vw, 18px);
 }
 
 /* =============== SIDE PANEL =============== */
@@ -25,49 +31,53 @@
 .side__top {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 18px 14px 22px;
+  gap: 0.65em;
+  padding: 0.5em 0.7em 0.9em;
 }
 
 .side__school {
-  width: 34px;
-  height: 34px;
+  width: 3em;
+  height: 3em;
   flex: none;
   border-radius: 50%;
   object-fit: cover;
 }
 
 .side__name {
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  line-height: 1.2;
+  font-size: 1.25em;
+  font-weight: 800;
+  line-height: 1.15;
 }
 
 .side__nav {
   display: flex;
   flex-direction: column;
-  gap: 4px;
-  padding: 0 0 0 0;
+  gap: 1.1em;
+  padding: 0.3em 0.45em 1.5em;
 }
 
 /* Side panel buttons */
 .side__btn {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 0.9em;
   width: 100%;
-  padding: 11px 16px;
+  min-height: 2.75em;
+  padding: 0.5em 0.9em;
   border: 0;
-  border-radius: 0;
+  border-radius: 0.9em;
   background: transparent; /* not hovered: transparent */
   color: #ffffff; /* not hovered: white text */
   font-family: inherit;
-  font-size: 0.78rem;
+  font-size: 1.1em;
   font-weight: 500;
   text-align: left;
   cursor: pointer;
   transition: background 0.15s ease, color 0.15s ease;
+}
+
+.side__btn--active {
+  font-weight: 700;
 }
 
 .side__btn:hover,
@@ -78,31 +88,32 @@
 
 .side__btn svg,
 .side__logout svg {
-  width: 16px;
-  height: 16px;
+  width: 1.35em;
+  height: 1.35em;
   flex: none;
   fill: none;
   stroke: currentColor;
-  stroke-width: 1.8;
+  stroke-width: 1.6;
   stroke-linecap: round;
   stroke-linejoin: round;
 }
 
 .side__bottom {
   margin-top: auto;
-  padding: 16px 14px 18px;
+  padding: 0.9em 0.45em 0.9em;
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .side__profile {
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin-bottom: 14px;
+  gap: 0.6em;
+  margin-bottom: 0.7em;
 }
 
 .side__avatar {
-  width: 34px;
-  height: 34px;
+  width: 2.5em;
+  height: 2.5em;
   flex: none;
   border-radius: 50%;
   object-fit: cover;
@@ -112,15 +123,16 @@
   display: flex;
   flex-direction: column;
   min-width: 0;
+  line-height: 1.25;
 }
 
 .side__profile-text strong {
-  font-size: 0.7rem;
-  font-weight: 700;
+  font-size: 1em;
+  font-weight: 800;
 }
 
 .side__profile-text span {
-  font-size: 0.65rem;
+  font-size: 0.95em;
   color: #cfc9e2;
 }
 
@@ -128,17 +140,22 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 0.5em;
   width: 100%;
-  padding: 8px 10px;
+  min-height: 2.4em;
+  padding: 0.3em 0.6em;
   background: transparent; /* not hovered */
   border: 1px solid #ffffff;
-  border-radius: 2px;
+  border-radius: 0;
   color: #ffffff;
   font-family: inherit;
-  font-size: 0.75rem;
+  font-size: 1em;
   cursor: pointer;
   transition: background 0.15s ease, color 0.15s ease;
+}
+
+.side__logout svg {
+  display: none; /* shown only when the side panel is icon-only */
 }
 
 .side__logout:hover {
@@ -155,38 +172,49 @@
 /* =============== MAIN =============== */
 .main {
   margin-left: var(--side-w);
-  padding: 14px clamp(14px, 2.5vw, 28px) 40px;
-  max-width: 1100px;
+  padding: 0 clamp(14px, 1.7vw, 34px) 2.5em;
+}
+
+/* First screen: as tall as the screen at least. The Enrolled Subjects
+   panel stretches into any spare height, so on a tall screen the first
+   thing seen ends right after the last subject. */
+.overview {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding-top: 0.45em;
+  padding-bottom: 1.1em;
 }
 
 .topbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid #b9b9b9;
-  margin-bottom: 18px;
+  gap: 1em;
+  padding-bottom: 0.75em;
+  border-bottom: 1px solid #a9a9a9;
+  margin-bottom: 1.5em;
 }
 
 .search {
   display: flex;
   align-items: center;
-  gap: 8px;
-  flex: 0 1 190px;
-  height: 24px;
-  padding: 0 10px;
+  gap: 0.5em;
+  flex: 0 1 27em;
+  height: 1.85em;
+  padding: 0 0.7em;
   border-radius: 999px;
   background: #fff;
 }
 
 .search svg {
-  width: 13px;
-  height: 13px;
+  width: 1.2em;
+  height: 1.2em;
   flex: none;
   fill: none;
   stroke: #000;
-  stroke-width: 2;
+  stroke-width: 1.8;
   stroke-linecap: round;
 }
 
@@ -197,109 +225,137 @@
   outline: 0;
   background: transparent;
   font-family: inherit;
-  font-size: 0.75rem;
+  font-size: 1em;
+}
+
+.search input::placeholder {
+  color: #7d7d7d;
 }
 
 .bell {
   display: grid;
   place-items: center;
-  width: 28px;
-  height: 28px;
+  width: 2.85em;
+  height: 2.85em;
   padding: 0;
   border: 0;
   border-radius: 50%;
-  background: #000; /* notification button stays black */
+  background: #241a41;
   cursor: pointer;
 }
 
 .bell img {
-  width: 16px;
-  height: 16px;
+  width: 1.4em;
+  height: 1.4em;
   object-fit: contain;
 }
 
+.intro {
+  margin-bottom: 1.35em;
+}
+
 .intro__eyebrow {
-  margin: 0 0 4px;
-  font-size: 0.7rem;
+  margin: 0 0 0.55em;
+  font-size: 0.93em;
   color: #c69a3d;
 }
 
 .intro h1 {
   margin: 0;
-  font-size: 1.15rem;
-  font-weight: 700;
+  font-size: 1.5em;
+  font-weight: 800;
+  line-height: 1.2;
 }
 
 .intro__sub {
-  margin: 2px 0 14px;
-  font-size: 0.75rem;
-  color: #6c6c6c;
+  margin: 0.35em 0 0;
+  font-size: 1.25em;
+  color: #9b9b9b;
 }
 
 /* Stat cards */
 .stats {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
-  margin-bottom: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 10em), 1fr));
+  gap: 1em 4.5%;
+  margin-bottom: 1.4em;
 }
 
 .stat {
   display: flex;
   flex-direction: column;
-  gap: 4px;
-  padding: 12px 12px 10px;
-  border-radius: 10px;
+  gap: 0.5em;
+  padding: 1em 1.4em 1.1em;
+  border-radius: 1.25em;
   background: #fff;
 }
 
 .stat strong {
-  font-size: 0.95rem;
+  font-size: 1.25em;
+  font-weight: 800;
+  line-height: 1.1;
 }
 
 .stat span {
-  font-size: 0.65rem;
-  color: #222;
+  font-size: 1em;
+  color: #6f6f6f;
 }
 
 /* Panels */
 .panel {
-  margin-bottom: 16px;
-  border-radius: 8px;
+  margin-bottom: 1.4em;
+  border-radius: 0.8em;
   background: #fff;
-  border: 1px solid #c4c4c4;
+  border: 1px solid #c9c9c9;
   overflow: hidden;
+}
+
+.panel--fill {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  margin-bottom: 0;
+}
+
+.panel--fill .rows {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.panel--fill .row {
+  flex: 1;
 }
 
 .panel__head {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
-  padding: 10px 14px;
-  border-bottom: 1px solid #d0d0d0;
+  gap: 1em;
+  padding: 0.95em 1.1em;
+  border-bottom: 1px solid #c9c9c9;
 }
 
 .panel__head h2 {
   margin: 0;
-  font-size: 0.7rem;
-  font-weight: 700;
+  font-size: 1em;
+  font-weight: 800;
 }
 
 .panel__meta {
-  font-size: 0.65rem;
-  color: #6c6c6c;
+  font-size: 0.95em;
+  color: #6f6f6f;
 }
 
 .panel__link {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 0.4em;
   padding: 0;
   border: 0;
   background: transparent;
   font-family: inherit;
-  font-size: 0.65rem;
+  font-size: 0.95em;
   color: #000;
   cursor: pointer;
 }
@@ -317,8 +373,9 @@
 .row {
   display: flex;
   align-items: center;
-  gap: 18px;
-  padding: 12px 14px;
+  gap: 1em;
+  min-height: 5.1em;
+  padding: 0.7em 1.1em;
   border-bottom: 1px solid #d6d6d6;
 }
 
@@ -328,8 +385,8 @@
 
 .row__index {
   flex: none;
-  width: 38px;
-  font-size: 0.8rem;
+  width: 5.2em;
+  font-size: 1.3em;
   color: #b5b5b5;
 }
 
@@ -337,29 +394,29 @@
   display: flex;
   flex: 1;
   flex-direction: column;
-  gap: 2px;
+  gap: 0.2em;
   min-width: 0;
 }
 
 .row__text strong {
-  font-size: 0.7rem;
-  font-weight: 700;
+  font-size: 1em;
+  font-weight: 800;
 }
 
 .row__text span {
-  font-size: 0.6rem;
-  color: #8a8a8a;
+  font-size: 0.95em;
+  color: #a3a3a3;
 }
 
 /* Status badges */
 .badge {
   flex: none;
-  min-width: 78px;
-  padding: 3px 12px;
+  min-width: 6.5em;
+  padding: 0.3em 1em;
   border-radius: 999px;
   border: 1px solid transparent;
-  font-size: 0.6rem;
-  font-weight: 700;
+  font-size: 0.85em;
+  font-weight: 800;
   letter-spacing: 0.03em;
   text-align: center;
   color: #000;
@@ -375,10 +432,10 @@
   border-color: #ff0000;
 }
 
-/* =============== RESPONSIVE =============== */
+/* =============== SMALL SCREENS =============== */
 @media (max-width: 560px) {
   .dash {
-    --side-w: 64px; /* icon-only side panel on small screens */
+    --side-w: 64px; /* icon-only side panel */
   }
 
   .side__name,
@@ -387,31 +444,37 @@
     display: none;
   }
 
+  .side__logout svg {
+    display: block;
+  }
+
   .side__top,
-  .side__btn,
   .side__profile {
     justify-content: center;
     padding-left: 0;
     padding-right: 0;
   }
 
+  .side__btn {
+    justify-content: center;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
   .side__top {
-    padding: 14px 0 16px;
-  }
-
-  .side__bottom {
-    padding: 12px 8px 14px;
-  }
-
-  .stats {
-    grid-template-columns: repeat(2, 1fr);
+    padding: 0.8em 0 1em;
   }
 
   .row {
-    gap: 10px;
+    gap: 0.6em;
   }
 
-  .row--subject .row__index {
-    width: 44px;
+  .row__index {
+    width: 3.6em;
+    font-size: 1.1em;
+  }
+
+  .stats {
+    gap: 0.8em;
   }
 }
