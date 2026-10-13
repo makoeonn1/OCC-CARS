@@ -85,17 +85,41 @@ export default function Dashboard() {
       if (!active) return;
       if (!s.session) return navigate("/login", { replace: true });
 
-      const [profile, dash] = await Promise.all([supabase.rpc("get_me"), supabase.rpc("get_dashboard")]);
+     
+      const [profile, dash] = await Promise.all([
+        supabase.rpc("get_me"),
+        supabase.rpc("get_dashboard"),
+      ]);
+
       if (!active) return;
-      if (profile.error || !profile.data) {
-        // logged in, but not a student account
-        await supabase.auth.signOut();
-        return navigate("/login", { replace: true });
+
+      if (profile.error) {
+        console.error("get_me error:", profile.error);
+        setError(`Could not load your student profile: ${profile.error.message}`);
+        setChecking(false);
+        return;
       }
+
+      if (!profile.data) {
+        console.error("get_me returned no profile:", profile.data);
+        setError(
+          "Your login succeeded, but no student profile was returned. Check your student record in Supabase."
+        );
+        setChecking(false);
+        return;
+      }
+
       setMe(profile.data);
-      if (dash.error) setError(dash.error.message);
-      else setData(dash.data);
+
+      if (dash.error) {
+        console.error("get_dashboard error:", dash.error);
+        setError(`Could not load dashboard data: ${dash.error.message}`);
+      } else if (dash.data) {
+        setData(dash.data);
+      }
+
       setChecking(false);
+
     })();
     return () => {
       active = false;
