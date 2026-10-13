@@ -39,7 +39,7 @@ export default function Login() {
     }
     setMessage({ type: "success", text: "Login successful!" });
     // Students land on the dashboard after logging in.
-    setTimeout(() => navigate("/dashboard", { replace: true }), 500);
+    setTimeout(() => navigate("/student-dashboard", { replace: true }), 500);
   };
 
   return (
